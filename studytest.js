@@ -64,7 +64,32 @@ function jsontest()
     obj=JSON.parse(text);
     document.getElementById("demo").innerHTML=obj.a;
 }
+
 //########################
+//DOM
+function changeattribute()
+{
+  return 0;
+}
+
+function changeCSS()
+{
+  document.getElementById("p2").style.color="blue";
+  document.getElementById("p2").style.fontFamily="Arial";
+  document.getElementById("p2").style.fontSize="larger";
+}
+function eventHandle()
+{
+  var x=document.getElementById("myBtn");
+  if(x.addEventListener)
+  {
+    x.addEventListener("click",myFunction(){alert(1);});
+  }
+  else if(x.attachEvent)
+  {
+    x.attachEvent("onclick"，myFunction(){alert(1);});
+  }
+}
 ///////////////////////////////////////////////////////////
 //alert(document.getElementById("demo").innerHTML);//由于html页面还没有渲染所以demo不存在
 document.write("<b>123</b>");//html
@@ -102,5 +127,25 @@ console.log('youdingme');
   </form>
   <p id="demo" name="demo" >提示信息</p>
  <script>jsontest();</script>
+ <br>
+ <br>
+ <br>
+ <hr>
+ 多重id
+ <p id='multi'>aaaa</p>
+ <span id='multi'>aaaaa</p>
+ <p class='muti'>123</p>
+ <h1 class='muti'>1123</h1>
+ <script>
+ document.write(document.getElementById('multi').innerHTML);
+ document.write(document.getElementByClassName('muti')[0].innerHTML);
+
+ </script>
+<p id="p2">changeCSS</p2>
+<script>changeCSS();</script>
+<p>该实力使用addEventListener()方法在按钮中添加点击事件</p>
+<button id='myBtn'>点我</button>
+<script>document.getElementById('myBtn').addEventListener("click",function(){alert(1);});</script>
+
 </body>
 </html>
